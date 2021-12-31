@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
@@ -11,7 +12,7 @@ const app = express();
 require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/keys').MongoURI;
+const db = process.env.DB;
 
 // Connect to MongoDB
 mongoose.connect(
